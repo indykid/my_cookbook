@@ -2,25 +2,29 @@ Ingredient.destroy_all
 
 Recipe.destroy_all
 
- Ingredient.create! name: 'tomato'
- Ingredient.create! name: 'cheese'
- Ingredient.create! name: 'spaghetti'
- Ingredient.create! name: 'macaroni pasta'
- Ingredient.create! name: 'flour'
- Ingredient.create! name: 'salt'
- Ingredient.create! name: 'pepper'
- Ingredient.create! name: 'Italian herbs and seasonings'
- Ingredient.create! name: 'basil'
- Ingredient.create! name: 'ham'
- Ingredient.create! name: 'onions'
- Ingredient.create! name: 'milk'
- Ingredient.create! name: 'parmesan'
+ tomato = Ingredient.create! name: 'tomato'
+ cheese = Ingredient.create! name: 'cheese'
+ spaghetti = Ingredient.create! name: 'spaghetti'
+ macaroni_pasta = Ingredient.create! name: 'macaroni pasta'
+ flour = Ingredient.create! name: 'flour'
+ salt = Ingredient.create! name: 'salt'
+ pepper = Ingredient.create! name: 'pepper'
+ herbs = Ingredient.create! name: 'Italian herbs and seasonings'
+ basil = Ingredient.create! name: 'basil'
+ ham = Ingredient.create! name: 'ham'
+ onions = Ingredient.create! name: 'onions'
+ milk = Ingredient.create! name: 'milk'
+ parmesan = Ingredient.create! name: 'parmesan'
 
-  Recipe.create! title: 'Macaroni and Cheese', instructions: 'Combine the macaroni with the cheese and bake for 1 hour.'
+ r = Recipe.create! title: 'Macaroni and Cheese', instructions: 'Combine the macaroni with the cheese and bake for 1 hour.', ingredient_ids:[macaroni_pasta.id, cheese.id]
 
-  Recipe.create! title: 'Pizza', instructions: 'Make the dough, roll it out flat, cover with tomato sauce and cheese and add any desired toppings. Place in oven for 1 hour.'
+  Recipe.create! title: 'Pizza', instructions: 'Make the dough, roll it out flat, cover with tomato sauce and cheese and add any desired toppings. Place in oven for 1 hour.', ingredient_ids:[cheese.id, tomato.id]
 
-  Recipe.create! title: 'Spaghetti', instructions: 'Place spaghetti in boiling water for 12 minutes, then add tomato sauce and herbs and heat for a further 3 minutes. Remove from heat and place in a bowl for eating. Add parmesan cheese and fresh basil.'
+  Recipe.create! title: 'Spaghetti', instructions: 'Place spaghetti in boiling water for 12 minutes, then add tomato sauce and herbs and heat for a further 3 minutes. Remove from heat and place in a bowl for eating. Add parmesan cheese and fresh basil.', ingredient_ids:[spaghetti.id]
+
+
+
+
 
 
 

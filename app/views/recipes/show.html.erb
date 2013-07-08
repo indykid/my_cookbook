@@ -11,6 +11,13 @@
 </p>
 
 <p>
+  <b>Ingredients:</b>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <%= ingredient.name %>
+  <%end%>
+</p>
+
+<p>
   <b>Instructions:</b>
   <%= @recipe.instructions %>
 </p>
