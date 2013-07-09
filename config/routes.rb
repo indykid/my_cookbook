@@ -1,4 +1,16 @@
 MyCookbook::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get "users/index"
+
+  get "users/new"
+
+  get "users/create"
+
   root to: "home#home"
 
   resources :ingredients
