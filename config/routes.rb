@@ -1,22 +1,35 @@
 MyCookbook::Application.routes.draw do
-  get "sessions/new"
+  # get "sessions/new"
 
-  get "sessions/create"
+  # get "sessions/create"
 
-  get "sessions/destroy"
+  # get "sessions/destroy"
 
-  get "users/index"
+  # get "users/index"
 
-  get "users/new"
+  # get "users/new"
 
-  get "users/create"
+  # get "users/create"
 
-  root to: "home#home"
+  resources :sessions
+
+  resources :users
 
   resources :ingredients
 
 
   resources :recipes
+
+  get "/login", to: 'sessions#new'
+
+  get "/users", to: "users#index"
+
+
+  #root to: 'users#index'
+
+  root to: "home#home"
+
+  
 
 
   # The priority is based upon order of creation:

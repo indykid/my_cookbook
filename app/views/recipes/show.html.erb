@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Image:</b>
+  <%= image_tag @recipe.recipe_image.detail.url %>
+</p>
+
+
+
+<p>
   <b>Title:</b>
   <%= @recipe.title %>
 </p>
 
-<p>
-  <b>Image:</b>
-  <%= @recipe.image %>
-</p>
+
 
 <p>
   <b>Ingredients:</b>
@@ -22,6 +26,7 @@
   <%= @recipe.instructions %>
 </p>
 
-
+<% if can? :update, @recipe %>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<% end %>
 <%= link_to 'Back', recipes_path %>

@@ -16,6 +16,9 @@ group :development do
 end
 
 gem 'pg'
+gem 'cancan'
+gem 'rmagick'
+gem 'carrierwave'
 
 
 

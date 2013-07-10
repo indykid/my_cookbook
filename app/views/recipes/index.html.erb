@@ -11,13 +11,18 @@
   </tr>
 
 <% @recipes.each do |recipe| %>
+
   <tr>
-    <td><%= recipe.title %></td>
+      <td><%= image_tag recipe.recipe_image.thumb.url %></td>
+    <td><%= link_to recipe.title, recipe %></td>
     <td><%= recipe.image %></td>
     <td><%= recipe.instructions %></td>
-    <td><%= link_to 'Show', recipe %></td>
+    
+    <% if can? :update, @recipe %>
     <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+
     <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
