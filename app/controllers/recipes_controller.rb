@@ -4,12 +4,18 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @q = Recipe.search(params[:q])
+    @recipes = @q.result(distinct: true)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @recipes }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @recipes }
+    #   end
+  end
+
+  def search
+    index
+    render :index
   end
 
   # GET /recipes/1
@@ -42,7 +48,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    params[:recipe][:ingredient_ids] ||= [] if params[:recipe]
+    #params[:recipe][:ingredient_ids] ||= [] if params[:recipe]
     @recipe = Recipe.new(params[:recipe])
 
     respond_to do |format|
@@ -59,7 +65,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1
   # PUT /recipes/1.json
   def update
-    params[:recipe][:ingredient_ids] ||= [] if params[:recipe]
+    #params[:recipe][:ingredient_ids] ||= [] if params[:recipe]
     @recipe = Recipe.find(params[:id])
 
     respond_to do |format|

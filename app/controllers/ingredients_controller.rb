@@ -11,6 +11,9 @@ load_and_authorize_resource
     end
   end
 
+  #@q = Ingredient.search(params[:q])
+    # @articles = @q.result(distinct: true)
+
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show

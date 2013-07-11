@@ -1,7 +1,9 @@
 class Recipe < ActiveRecord::Base
-  attr_accessible :image, :instructions, :title, :ingredient_ids, :recipe_image
+  attr_accessible :image, :instructions, :title, :ingredients_recipes_attributes, :recipe_image, :ingredient_ids
 
-  has_and_belongs_to_many :ingredients
+  has_many :ingredients_recipes, dependent: :destroy
+
+  has_many :ingredients, through: :ingredients_recipes
 
   mount_uploader :recipe_image, RecipeImageUploader
 

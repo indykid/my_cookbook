@@ -1,5 +1,7 @@
 class Ingredient < ActiveRecord::Base
-  attr_accessible :name, :recipe_ids
+  attr_accessible :name, :ingredients_recipes_attributes
 
-  has_and_belongs_to_many :recipes
+  has_many :ingredients_recipes, dependent: :destroy
+  has_many :recipes, through: :ingredient_recipe
+
 end

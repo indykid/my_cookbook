@@ -19,6 +19,7 @@ gem 'pg'
 gem 'cancan'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'ransack'
 
 
 

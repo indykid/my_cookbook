@@ -16,7 +16,7 @@ Recipe.destroy_all
  milk = Ingredient.create! name: 'milk'
  parmesan = Ingredient.create! name: 'parmesan'
 
- r = Recipe.create! title: 'Macaroni and Cheese', instructions: 'Combine the macaroni with the cheese and bake for 1 hour.', ingredient_ids:[macaroni_pasta.id, cheese.id]
+  Recipe.create! title: 'Macaroni and Cheese', instructions: 'Combine the macaroni with the cheese and bake for 1 hour.', ingredient_ids:[macaroni_pasta.id, cheese.id]
 
   Recipe.create! title: 'Pizza', instructions: 'Make the dough, roll it out flat, cover with tomato sauce and cheese and add any desired toppings. Place in oven for 1 hour.', ingredient_ids:[cheese.id, tomato.id]
 

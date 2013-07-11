@@ -1,5 +1,20 @@
 <h1>Listing recipes</h1>
 
+<%= search_form_for @q, url: search_path, html: {method: :post} do |f| %>
+      <p>
+        <%= f.label :title_or_ingredients_name_cont, 'Search by recipe title or ingredient' %>
+        <%= f.text_field :title_or_ingredients_name_cont %>
+      </p>
+      <p>
+        
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+
+    
+
 <table>
   <tr>
     <th>Title</th>

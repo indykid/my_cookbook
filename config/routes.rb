@@ -24,6 +24,7 @@ MyCookbook::Application.routes.draw do
 
   get "/users", to: "users#index"
 
+  match '/search', to: 'recipes#search', via: [:get, :post], as: :search
 
   #root to: 'users#index'
 
