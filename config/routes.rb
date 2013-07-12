@@ -18,17 +18,23 @@ MyCookbook::Application.routes.draw do
   resources :ingredients
 
 
-  resources :recipes
+
 
   get "/login", to: 'sessions#new'
 
   get "/users", to: "users#index"
 
-  match '/search', to: 'recipes#search', via: [:get, :post], as: :search
-
+  
   #root to: 'users#index'
 
-  root to: "home#home"
+  resources :recipes do
+    collection do
+      match '/search', to: 'recipes#search', via: [:get, :post], as: :search
+
+    end
+  end
+
+  root to: "recipes#index"
 
   
 

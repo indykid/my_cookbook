@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    puts "shdgfkjdshfjkdsh"
     @recipe = Recipe.find(params[:id])
 
     respond_to do |format|

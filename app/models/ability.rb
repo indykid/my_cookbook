@@ -12,6 +12,8 @@ class Ability
     else
         can :read, :all
         can :create, User
+        can :create, Recipe
+        can :create, Ingredient
 
         # can :destroy, Recipe
     end

@@ -4,6 +4,7 @@ load_and_authorize_resource
   # GET /ingredients.json
   def index
     @ingredients = Ingredient.all
+    
 
     respond_to do |format|
       format.html # index.html.erb

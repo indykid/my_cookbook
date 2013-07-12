@@ -1,25 +1,18 @@
-<h1>Listing ingredients</h1>
+<h3>ingredients</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @ingredients.each do |ingredient| %>
-  <tr>
-    <td><%=link_to ingredient.name, ingredient %></td>
+  
+    <li><%=link_to ingredient.name, ingredient %></li>
     
     <% if can? :update, @ingredient %>
-    <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-    <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
+    <li><%= link_to 'Edit', edit_ingredient_path(ingredient) %></li>
+    <li><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    
+  </ul>
+  <% end %>
 <% end %>
-</table>
 
-<br />
+
 
 <%= link_to 'New Ingredient', new_ingredient_path %>

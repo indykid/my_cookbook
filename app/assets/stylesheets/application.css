@@ -8,6 +8,187 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+ *= require_tree
+ *= require_self.
  */
+
+/******************************************
+/* GLOBAL STYLES                   
+/*******************************************/
+
+
+ /* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+  clear:both;
+}
+
+body {
+  
+  background-image: url(/images/food.png);
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+font-family: 'Quattrocento Sans', sans-serif;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1, 
+h2,
+h3,
+h4 {
+    font-family: 'Michroma', sans-serif;
+}
+
+h1 {
+  padding: 15px 0 15px 20px;
+  margin: 0 auto;
+  width: 780px;
+  color: #66FF66;
+
+}
+
+.container {
+  width: 800px;
+  min-height: 800px;
+  margin: 0 auto;
+}
+
+.content {
+  padding:  30px;
+}
+
+.notice {
+  color: white;
+
+}
+
+nav {
+}
+
+nav a {
+  text-decoration: none;
+  color: #FF7575;
+  padding: 5px 10px;
+}
+
+
+nav li {
+  list-style: none;
+  float: left;
+  margin-right: 20px;
+  
+
+}
+
+nav li a:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+nav li a:active {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+nav li a.selected {
+    background: rgba(0, 0, 0, 0.3);
+    /*text-shadow: 1px 1px #fff;*/
+}
+
+
+
+label {
+  color: #CFCFD8;
+}
+
+input {
+  font-family: 'Quattrocento Sans', sans-serif;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  height: 20px;
+
+}
+
+.authenticate {
+  color:  #2EB8E6;
+}
+
+.right {
+  float: right;
+}
+
+.search {
+  float: right;
+  clear: both;
+  padding: 30px 0;
+  font-size:  14px
+}
+
+
+
+article a {
+  text-decoration: none;
+
+}
+
+/******************************************
+/* ADDITIONAL STYLES                   
+/*******************************************/
+
+.rounded {
+    -moz-border-radius: 5px; /* Firefox */
+    -webkit-border-radius: 5px; /* Safari, Chrome */
+    border-radius: 5px; /* CSS3 */
+}
+
+
+
+
+.alpha80white {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(255, 255, 255);
+    /* RGBa with 0.4 opacity */
+    background-color: rgba(255, 255, 255, 0.80);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";}
+
+
+
+
+
+.alpha40black {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(0, 0, 0);
+    /* RGBa with 0.4 opacity */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+.text-shadow1px {
+    text-shadow: 1px 1px #6E6E6E;
+}
+
+
+
+

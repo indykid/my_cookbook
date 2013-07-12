@@ -1,47 +1,25 @@
-<h1>Listing recipes</h1>
 
-<%= search_form_for @q, url: search_path, html: {method: :post} do |f| %>
-      <p>
-        <%= f.label :title_or_ingredients_name_cont, 'Search by recipe title or ingredient' %>
-        <%= f.text_field :title_or_ingredients_name_cont %>
-      </p>
-      <p>
-        
-      </p>
-      <p>
-        <%= f.submit %>
-      </p>
-    <% end %>
+<h3>recipes</h3>
 
-    
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Image</th>
-    <th>Instructions</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+  
 <% @recipes.each do |recipe| %>
 
-  <tr>
-      <td><%= image_tag recipe.recipe_image.thumb.url %></td>
-    <td><%= link_to recipe.title, recipe %></td>
-    <td><%= recipe.image %></td>
-    <td><%= recipe.instructions %></td>
+  <article>
+    <%= link_to recipe.title, recipe %>
+    <%= image_tag recipe.recipe_image.thumb.url %>
+    
     
     <% if can? :update, @recipe %>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+    <%= link_to 'Edit', edit_recipe_path(recipe) %>
 
-    <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+
     <% end %>
-  </tr>
+  </article>
 <% end %>
-</table>
 
-<br />
-
+<% if can? :create, @recipe %>
 <%= link_to 'New Recipe', new_recipe_path %>
+<% end %>
+
+

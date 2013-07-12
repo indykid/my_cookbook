@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MyCookbook</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
+  <head>
+    <title>MyCookbook</title>
+    <link href='http://fonts.googleapis.com/css?family=Michroma|Quattrocento+Sans' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    
 
-<% if current_user %>
-    <p>hello, <%= current_user.email %></p>
-    <%= link_to 'log out', session_path(session), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% else %>
-    <%= link_to 'please login', login_path %>
-    <%= link_to 'sign up', new_user_path %>
-  <%end%>
+    <div class="container alpha40black">
+      <h1>DIYfood</h1>
+      
+        <div class="content">
 
-  <% flash.each do |name, message| %>
-  <div class="flash-message flash_message-<%=name%>">
-    <%= message%>
-  </div>
-  <%end%>
+        <nav class="clearfix">
+          <ul>
 
-<ul>
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Recipes", recipes_path %></li>
-  <li><%= link_to "Ingredients", ingredients_path %></li>
-</ul>
+            <%if controller.class.to_s == "RecipesController"  %>
+                <li><%= link_to "Recipes", root_path, class: "selected rounded" %></li>
+                <li><%= link_to "Ingredients", ingredients_path, class: "rounded" %></li>
+            <% else %>
+              <li><%= link_to "Recipes", root_path, class: "rounded" %></li>
+                <li><%= link_to "Ingredients", ingredients_path, class: "selected rounded" %></li>
+            <% end %>
+            <% if current_user %>
+            <p class="notice">Hello, <%= current_user.email %></li>
+            <li class="authenticate"><%= link_to 'log out', session_path(session), method: :delete, data: {confirm: 'Are you sure?'} %></li>
+            <% else %>
+            <li class="right"><%= link_to 'login', login_path, class: "authenticate rounded"  %><li/>
+            <li class="right"><%= link_to 'sign up', new_user_path, class: "authenticate rounded"%></li>
+            <%end%>
 
-<%= yield %>
-</div>
-</body>
+            <% flash.each do |name, message|  %>
+            <p class="notice"><%= message%></p>
+            <%end%>
+
+          </ul>
+        </nav>
+
+      <%= search_form_for @q, url: search_recipes_path, html: {method: :post}, :class => "search clear" do |f| %>
+      
+      <%= f.text_field :title_or_ingredients_name_cont, class: "rounded", placeholder: 'search by title or ingredient' %>
+      <%= f.submit :class => "rounded" %>
+      <% end %>
+      </div>
+      <div class="content clear">
+        <%= yield %>
+      </div>
+
+    </div>
+  </body>
 </html>
