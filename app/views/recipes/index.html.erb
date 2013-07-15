@@ -4,16 +4,13 @@
   
 <% @recipes.each do |recipe| %>
 
-  <article>
-    <%= link_to recipe.title, recipe %>
-    <%= image_tag recipe.recipe_image.thumb.url %>
-    
-    
+  <article class="left box">
+    <h4><%= link_to recipe.title, recipe %></h4>
+    <%= image_tag recipe.recipe_image.thumb.url class: "left" %>
     <% if can? :update, @recipe %>
-    <%= link_to 'Edit', edit_recipe_path(recipe) %>
-
-    <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+      <div >
+      <%= link_to 'Edit', edit_recipe_path(recipe), class: "rounded alpha50black padded"%>
+      </div>
     <% end %>
   </article>
 <% end %>

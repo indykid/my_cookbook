@@ -10,44 +10,17 @@
   <body>
     
 
-    <div class="container alpha40black">
+    <div class="container alpha70black">
       <h1>DIYfood</h1>
       
         <div class="content">
-
-        <nav class="clearfix">
-          <ul>
-
-            <%if controller.class.to_s == "RecipesController"  %>
-                <li><%= link_to "Recipes", root_path, class: "selected rounded" %></li>
-                <li><%= link_to "Ingredients", ingredients_path, class: "rounded" %></li>
-            <% else %>
-              <li><%= link_to "Recipes", root_path, class: "rounded" %></li>
-                <li><%= link_to "Ingredients", ingredients_path, class: "selected rounded" %></li>
-            <% end %>
-            <% if current_user %>
-            <p class="notice">Hello, <%= current_user.email %></li>
-            <li class="authenticate"><%= link_to 'log out', session_path(session), method: :delete, data: {confirm: 'Are you sure?'} %></li>
-            <% else %>
-            <li class="right"><%= link_to 'login', login_path, class: "authenticate rounded"  %><li/>
-            <li class="right"><%= link_to 'sign up', new_user_path, class: "authenticate rounded"%></li>
-            <%end%>
-
-            <% flash.each do |name, message|  %>
-            <p class="notice"><%= message%></p>
-            <%end%>
-
-          </ul>
-        </nav>
-
-      <%= search_form_for @q, url: search_recipes_path, html: {method: :post}, :class => "search clear" do |f| %>
-      
-      <%= f.text_field :title_or_ingredients_name_cont, class: "rounded", placeholder: 'search by title or ingredient' %>
-      <%= f.submit :class => "rounded" %>
-      <% end %>
+        <%= render 'nav' %>
+        
       </div>
-      <div class="content clear">
+      
+      <div class="content clear clearfix">
         <%= yield %>
+      
       </div>
 
     </div>

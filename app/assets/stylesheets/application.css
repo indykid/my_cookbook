@@ -37,12 +37,20 @@ body {
   background-size: cover;
   background-repeat:no-repeat;
   background-attachment: fixed;
-font-family: 'Quattrocento Sans', sans-serif;
+  font-family: 'Quattrocento Sans', sans-serif;
+  line-height: 1.5;
   color: white;
+
+}
+
+ul {
+  padding-left: 5px;
 }
 
 li {
   list-style: none;
+  /*
+  */
 }
 
 a {
@@ -53,34 +61,52 @@ a {
 h1, 
 h2,
 h3,
-h4 {
+h4,
+h5,
+.nav {
     font-family: 'Michroma', sans-serif;
 }
 
 h1 {
+  background: rgba(0, 0, 0, 0.4);;
   padding: 15px 0 15px 20px;
   margin: 0 auto;
-  width: 780px;
+  width: 840px;
   color: #66FF66;
+}
 
+h3, h4 {
+  color: #2EB8E6;
 }
 
 .container {
-  width: 800px;
-  min-height: 800px;
+  width: 860px;
+  min-height: 900px;
   margin: 0 auto;
 }
 
 .content {
-  padding:  30px;
+  padding:  0 30px;
+  margin: 0 auto;
 }
 
 .notice {
   color: white;
+  line-height: 1.75;
 
 }
 
-nav {
+.left {
+  float: left;
+}
+
+.r_image {
+  border: solid black 10px;
+}
+
+.box {
+  min-width: 395px;
+  margin: 20px 0;
 }
 
 nav a {
@@ -89,13 +115,13 @@ nav a {
   padding: 5px 10px;
 }
 
+.nav  ul li {
+  margin-right: 30px;
+}
 
 nav li {
   list-style: none;
   float: left;
-  margin-right: 20px;
-  
-
 }
 
 nav li a:hover {
@@ -117,11 +143,17 @@ label {
   color: #CFCFD8;
 }
 
-input {
+input, 
+.textarea {
   font-family: 'Quattrocento Sans', sans-serif;
-  background: rgba(0, 0, 0, 0.2);
-  border: none;
-  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dotted black;
+  color: #fff;
+  padding: 10px;
+  -moz-border-radius: 5px; /* Firefox */
+  -webkit-border-radius: 5px; /* Safari, Chrome */
+  border-radius: 5px; /* CSS3 */
+
 
 }
 
@@ -157,8 +189,9 @@ article a {
     border-radius: 5px; /* CSS3 */
 }
 
-
-
+.padded {
+  padding: 10px;
+}
 
 .alpha80white {
     /* Fallback for web browsers that don't support RGBa */
@@ -171,14 +204,23 @@ article a {
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";}
 
 
-
-
-
-.alpha40black {
+.alpha70black {
     /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(0, 0, 0);
     /* RGBa with 0.4 opacity */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.75);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+
+.alpha50black {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(0, 0, 0);
+    /* RGBa with 0.4 opacity */
+    background-color: rgba(0, 0, 0, 0.5);
     /* For IE 5.5 - 7*/
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
     /* For IE 8*/
@@ -189,6 +231,8 @@ article a {
     text-shadow: 1px 1px #6E6E6E;
 }
 
-
+.margin30 {
+  margin: 0 0 20px 30px;
+}
 
 

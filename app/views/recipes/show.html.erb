@@ -1,32 +1,28 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Image:</b>
-  <%= image_tag @recipe.recipe_image.detail.url %>
-</p>
+<h3><%= @recipe.title %></h3>
 
+<%= image_tag @recipe.recipe_image.detail.url, class: "left r_image" %>
 
+<ul class="left clear">
 
-<p>
-  <b>Title:</b>
-  <%= @recipe.title %>
-</p>
-
-
-
-<p>
-  <b>Ingredients:</b>
+<li>
+  <h4>ingredients:</h4>
   <% @recipe.ingredients.each do |ingredient| %>
   <%= ingredient.name %>
   <%end%>
-</p>
+</li>
 
-<p>
-  <b>Instructions:</b>
+<li>
+  <h4>instructions:</h4>
   <%= @recipe.instructions %>
-</p>
+</li>
+</ul>
 
-<% if can? :update, @recipe %>
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<% end %>
-<%= link_to 'Back', recipes_path %>
+<div class="right clear rounded alpha50black padded">
+  <% if can? :update, @recipe %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+  <%= link_to 'Delete', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <% end %>
+
+  <%= link_to 'Back', recipes_path %>
+</div>

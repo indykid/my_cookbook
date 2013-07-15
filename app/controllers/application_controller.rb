@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
 
-  before_filter :search
+  before_filter :prepare_search
 
   #before_filter :can_access_route
 
@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   redirect_to root_url, alert: "you can't access this page"
   end
   
-  def search
-    @q = Ingredient.search(params[:q])
+  def prepare_search
+    @q = Recipe.search(params[:q])
     @ingredients = @q.result(distinct: true)
   end
 

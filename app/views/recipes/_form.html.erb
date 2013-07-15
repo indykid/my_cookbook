@@ -1,44 +1,48 @@
 <%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+      <p class="notice"><%= pluralize(@recipe.errors.count, "error") %> could not save this recipe</p>
 
-      <ul>
+  <ul>
       <% @recipe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
-    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
+  <div>
+    <h5><%= f.label :title %></h5>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :recipe_image%><br />
+  
+  
+
+  <div>
+    <h5><%= f.label :recipe_image%></h5>
+    <%= image_tag @recipe.recipe_image.detail.url, class: "r_image" %></br>
     <%= f.file_field :recipe_image%>
-    
   </div>
+  
 
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
+
+  
+  <div>
+    <h5><%= f.label :instructions %></h5>
+    <%= f.text_area :instructions, class: "textarea"  %></div>
+
+  <div>
+    <h5><%= f.label :ingredients %></h5>
+    <ul>
+      <% Ingredient.all.each do |ingredient| %>
+        <li>
+        <%= label_tag ingredient.name %>
+        <%= check_box_tag 'recipe[ingredient_ids][]', ingredient.id, @recipe.ingredient_ids.include?(ingredient.id) %>
+        </li>
+      <%end%>
+    </ul>
   </div>
-
-  <p>
-  <b>Ingredients:</b>
-  <% Ingredient.all.each do |ingredient| %>
-  <%= label_tag ingredient.name %>
-  <%= check_box_tag 'recipe[ingredient_ids][]', ingredient.id, @recipe.ingredient_ids.include?(ingredient.id) %>
-  <%end%>
-</p>
-
-  <div class="field">
-    <%= f.label :instructions %><br />
-    <%= f.text_area :instructions %>
-  </div>
-  <div class="actions">
+  
+  
     <%= f.submit %>
-  </div>
+  
+  
 <% end %>
